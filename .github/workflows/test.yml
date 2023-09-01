@@ -1,0 +1,42 @@
+name: Ansible deploy
+
+on:
+  push:
+    branches:
+      - main  
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Display Ansible Version
+        run: | 
+          ansible --version
+          python --version
+          python3 --version
+         
+      - name: Install pywinrm
+        run: pip3 install pywinrm
+        
+      - name: Display Ansible Version
+        run: | 
+          pip show pywinrm
+          pip3 show pywinrm
+      - name: Navigate Home
+        run: cd ~
+
+      - name: Create Ansible Directory
+        run: mkdir -p /etc/ansible
+
+      - name: Write Content to File
+        run: |
+          echo '---' > /etc/ansible/variables.yml
+          echo 'dockerhub_username: Oliver' >> /etc/ansible/variables.yml
+          echo 'dockerhub_password: Pass123word' >> /etc/ansible/variables.yml
+          echo 'app_name: App' >> /etc/ansible/variables.yml
+          echo 'app_version: Ver' >> /etc/ansible/variables.yml   
+
+      - name: Show File Contents
+        run: cat /etc/ansible/ansible_config.yml
