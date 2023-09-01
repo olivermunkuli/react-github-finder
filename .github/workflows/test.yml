@@ -27,16 +27,13 @@ jobs:
       - name: Navigate Home
         run: cd ~
 
-      - name: Create Ansible Directory
-        run: sudo mkdir -p /etc/ansible
-
       - name: Write Content to File
         run: |
-          sudo echo '---' > /etc/ansible/variables.yml
-          sudo echo 'dockerhub_username: Oliver' >> /etc/ansible/variables.yml
-          sudo echo 'dockerhub_password: Pass123word' >> /etc/ansible/variables.yml
-          sudo sudo echo 'app_name: App' >> /etc/ansible/variables.yml
-          sudo echo 'app_version: Ver' >> /etc/ansible/variables.yml   
-
+          echo '---' > ~/variables.yml
+          echo 'dockerhub_username: Oliver' >> ~/variables.yml
+          echo 'dockerhub_password: Pass123word' >> ~/variables.yml
+          echo 'app_name: App' >> ~/variables.yml
+          echo 'app_version: Ver' >> ~/variables.yml
+ 
       - name: Show File Contents
-        run: cat /etc/ansible/ansible_config.yml
+        run: cat ~/variables.yml
