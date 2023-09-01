@@ -16,6 +16,7 @@ jobs:
           ansible --version
           python --version
           python3 --version
+          pip --version
          
       - name: Install pywinrm
         run: pip3 install pywinrm
