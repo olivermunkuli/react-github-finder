@@ -28,7 +28,7 @@ jobs:
         run: cd ~
 
       - name: Create Ansible Directory
-        run: mkdir -p /etc/ansible
+        run: sudo mkdir -p /etc/ansible
 
       - name: Write Content to File
         run: |
