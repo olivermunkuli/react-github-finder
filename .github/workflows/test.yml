@@ -24,8 +24,11 @@ jobs:
         run: | 
           pip show pywinrm
           pip3 show pywinrm
+          
       - name: Navigate Home
-        run: cd ~
+        run: |
+          pwd
+          cd ~
 
       - name: Write Content to File
         run: |
